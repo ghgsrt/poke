@@ -1,0 +1,42 @@
+<div *ngIf="battleCache.length > 0" class="battlecache-container">
+  <div *ngFor="let usedAttack of battleCache">
+    <div *ngFor="let prop of usedAttack | keyvalue: sortNull">
+      <div
+        *ngIf="
+          prop.key === 'fightersBefore' ||
+            prop.key === 'fighters' ||
+            prop.key === 'attack';
+          else displayProp
+        "
+      >
+        <div *ngIf="prop.key === 'fightersBefore'" class="header">
+          <p>
+            <strong>Attacker: </strong
+            >{{
+              usedAttack.fighters.attacker.nickname ??
+                usedAttack.fighters.attacker.base.name
+            }}
+          </p>
+          <p>
+            <strong>Defender: </strong
+            >{{
+              usedAttack.fighters.defender.nickname ??
+                usedAttack.fighters.defender.base.name
+            }}
+          </p>
+          <p>
+            <strong>Attack: </strong>{{ usedAttack.attack.base.name }} ({{
+              usedAttack.attack.base.category ? "Special" : "Physical"
+            }})
+          </p>
+        </div>
+      </div>
+      <ng-template #displayProp>
+        <div class="content">
+          <strong>{{ prop.key }}: </strong><p>{{ prop.value }}</p>
+        </div>
+      </ng-template>
+    </div>
+    <hr />
+  </div>
+</div>

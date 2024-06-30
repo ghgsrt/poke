@@ -1,0 +1,176 @@
+.fightview-container {
+  width: 485px;
+  height: 440px;
+  border: 1px solid black;
+  background-color: rgba(218, 218, 218, 0.089);
+  user-select: none;
+  cursor: default;
+}
+
+.fightview-container div:not(.wrapper) {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  margin: 0;
+}
+
+.field-grid {
+  height: 71% !important;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.enemy,
+.player {
+  --outer-padding: 1.5rem;
+  --inner-padding: 1rem;
+}
+
+.enemy {
+}
+
+.player {
+}
+
+img {
+  height: 60% !important;
+  width: 44% !important;
+}
+
+.hp-container {
+  height: 40% !important;
+  width: calc(56% - var(--outer-padding) - var(--inner-padding)) !important;
+}
+
+.enemy.hp-container {
+  background: red;
+  padding-left: var(--outer-padding);
+  padding-right: var(--inner-padding);
+}
+
+img.enemy {
+  background: blue;
+}
+
+img.player {
+  background: green;
+  transform: translateY(-33.5%);
+}
+
+.player.hp-container {
+  background: purple;
+  padding-right: var(--outer-padding);
+  padding-left: var(--inner-padding);
+}
+
+.menu-container,
+.menu-container div:not(.wrapper) {
+  background: pink;
+  outline: 3px ridge black;
+  margin: 1.5%;
+}
+
+.menu-container div:not(.wrapper) {
+  margin-top: 0;
+  margin-right: 0;
+  outline-color: darkblue;
+}
+
+.menu-container {
+  height: 26% !important;
+  width: 97% !important;
+}
+
+.menu-container p {
+  margin: 0;
+}
+
+.menu-main {
+  width: 56% !important;
+  display: grid;
+  grid-template-columns: 56% 44%;
+  grid-gap: 0;
+}
+
+.menu-main div:not(.wrapper) {
+  position: relative;
+  margin: 0;
+}
+
+.menu-main p {
+  position: absolute;
+  bottom: 0;
+  right: 4%;
+}
+
+.menu-fight {
+  width: 80% !important;
+}
+
+.menu-fight div:not(.sub-menu-fight) {
+  height: calc(25% - 14px) !important;
+  padding-top: 10px;
+}
+
+.menu-fight p {
+  height: 25%;
+  position: relative;
+  padding-left: var(--outer-padding);
+}
+
+.menu-fight div:not(.sub-menu-fight) p {
+  line-height: 1.5rem;
+  font-size: 2rem !important;
+}
+
+.menu-container div:not(.sub-menu-fight) p:hover::before {
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-left: 10px solid black;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  transform: translateX(-12px);
+}
+
+.menu-container div:not(.sub-menu-fight) p:not(.menu-fight p):hover::before {
+    transform: translateX(-13px) translateY(7px);
+}
+
+.sub-menu-fight {
+  width: calc(240px + var(--outer-padding) + var(--inner-padding)) !important;
+  height: 85.78px !important;
+  position: absolute;
+  transform: translateY(-88px) translateX(-120px);
+}
+
+.sub-menu-fight p {
+  margin-bottom: 3px;
+}
+
+.sub-menu-fight p:nth-child(1) {
+  padding-left: 4% !important;
+}
+
+.sub-menu-fight p:nth-child(2) {
+  padding-left: calc(4% + var(--outer-padding)) !important;
+}
+.sub-menu-fight strong {
+  text-align: right;
+  padding-right: 4% !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}

@@ -1,0 +1,18 @@
+.prompt-container {
+  width: calc(470.44px - 0.4%);
+  height: calc(115.5px - 3%);
+  margin: 7.27273px;
+  position: absolute;
+  outline: 3px ridge black;
+  transform: translateY(-130px);
+  background: white;
+  padding-top: 1.5%;
+  padding-left: 0.4%;
+}
+
+p {
+    line-height: 2.85rem;
+    margin: 0;
+    overflow-y: scroll;
+    transform: translateY(2px);
+}

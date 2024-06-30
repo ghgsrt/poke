@@ -1,0 +1,59 @@
+.battlestats-container {
+  font-size: 1rem;
+  margin: 1.5rem;
+  margin-top: 0;
+  outline: 3px solid black;
+  padding: 0.5rem;
+}
+
+.battlestats-container > p,
+.sub-label {
+  max-width: 58.65px !important;
+}
+
+.battlestats-container > p {
+  font-weight: bold;
+}
+
+.battlestats-container strong:not(.sub-label),
+.battlestats-container > p {
+  font-size: 1.25rem;
+}
+
+.battlestats-container div strong {
+  width: 100%;
+}
+
+.battlestats-container p {
+  margin: 0;
+}
+
+.battlestats-container *:not(.main-header, .main-header > strong) {
+  text-align: right;
+}
+
+.main-header > * {
+  width: 50% !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.col {
+  flex-direction: column;
+  margin-right: 1rem;
+}
+
+.start {
+  justify-content: flex-start !important;
+}
+
+.start * {
+  margin-right: 0.5rem;
+}

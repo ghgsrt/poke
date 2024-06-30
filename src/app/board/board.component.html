@@ -1,0 +1,49 @@
+<!-- <h1>Current Player: {{ winner === null ? player : "N/A" }}</h1>
+
+<button (click)="newGame()">Start new Game</button>
+
+<h2 *ngIf="winner">Player {{ winner }} won the game!</h2> -->
+<!-- <h1>Selected Monster: {{ selectedMonster }}</h1>
+<h1>Selected Active Monster: {{ selectedActiveMonster }}</h1>
+<h1>viewDex: {{ viewDex }}</h1>
+<h1>viewTeam: {{ viewTeam }}</h1> -->
+<!-- <h1>View: {{ view }}</h1> -->
+<div class="flex row">
+  <button (click)="damageBulby()">DAMAGE</button>
+  <button (click)="fighting = !fighting">
+    {{ fighting ? "End Fight" : "FIGHT!" }}
+  </button>
+</div>
+<main>
+  <div class="flex row">
+    <div>
+      <app-menu [contents]="menu"></app-menu>
+
+      <!-- <app-square
+        *ngFor="let monsterKey of monsterKeys"
+        [monster]="getMonster(monsterKey).name"
+        (click)="viewMonster(monsterKey)"
+      >
+      </app-square> -->
+      <!-- {{exp}} -->
+    </div>
+    <div>
+      <app-overview
+        *ngIf="viewDex && selectedMonster"
+        [monster]="selectedMonster"
+      ></app-overview>
+      <app-team-view-gen1
+        *ngIf="viewTeam && selectedActiveMonster"
+        [monster]="selectedActiveMonster"
+        [view]="view.view"
+      ></app-team-view-gen1>
+      <app-fight-view-gen1
+        *ngIf="fighting"
+        [oppTrainer]="testEnemy"
+        [player]="player"
+        [endFight]="endFight"
+      >
+      </app-fight-view-gen1>
+    </div>
+  </div>
+</main>

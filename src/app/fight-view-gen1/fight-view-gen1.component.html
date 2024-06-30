@@ -1,0 +1,76 @@
+<div class="flex row">
+  <div class="flex col">
+    <app-view-battle-stats-gen1
+      *ngIf="oppTrainer"
+      [monster]="oppTrainer.getChosenMonster()"
+    ></app-view-battle-stats-gen1>
+    <app-view-battle-stats-gen1
+      *ngIf="player"
+      [monster]="player.getChosenMonster()"
+    ></app-view-battle-stats-gen1>
+  </div>
+  <div class="fightview-container">
+    <div *ngIf="oppTrainer && player" class="field-grid">
+      <div class="enemy hp-container">
+        {{ oppTrainer.getChosenMonster().base.name.toUpperCase() }}
+        <app-healthbar
+          [monster]="oppTrainer.getChosenMonster()"
+          [showHPNums]="false"
+        ></app-healthbar>
+      </div>
+
+      <img class="enemy" />
+      <img class="player" />
+
+      <div class="player hp-container">
+        {{
+          player.getChosenMonster().nickname ??
+            player.getChosenMonster().base.name.toUpperCase()
+        }}
+        <app-healthbar [monster]="player.getChosenMonster()"></app-healthbar>
+      </div>
+    </div>
+
+    <div *ngIf="player" class="player menu-container flex justify-end">
+      <div *ngIf="fightMenuLoc === 0" class="menu-main">
+        <div><p (click)="setFightMenuLoc(1)">FIGHT</p></div>
+        <div><p>PKMN</p></div>
+        <div><p (click)="setFightMenuLoc(2)">ITEM</p></div>
+        <div><p (click)="endFight()">RUN</p></div>
+      </div>
+      <div *ngIf="fightMenuLoc === 1" class="menu-fight">
+        <div *ngIf="hoveredAttack" class="sub-menu-fight flex col">
+          <p>TYPE/</p>
+          <p>{{ hoveredAttack.base?.types?.toString()?.toUpperCase() }}</p>
+          <strong>{{ hoveredAttack.pp }}/{{ hoveredAttack.base?.pp }}</strong>
+        </div>
+        <div
+          *ngFor="let attack of player.getChosenMonster().attacks"
+          class="wrapper"
+        >
+          <p
+            *ngIf="attack"
+            (click)="
+              engageTurn(
+                (player.getChosenMonster().nickname ??
+                  player.getChosenMonster().base.name) +
+                  ' used ' +
+                  attack?.base?.name?.toUpperCase(),
+                true,
+                attack
+              )
+            "
+            (mouseenter)="setHoveredAttack(attack)"
+            (mouseleave)="setHoveredAttack(undefined)"
+          >
+            {{ attack.base?.name?.toUpperCase() }}
+          </p>
+        </div>
+      </div>
+      <div *ngIf="fightMenuLoc === 2" class="menu-item"></div>
+    </div>
+    <app-prompt [prompt]="prompt"></app-prompt>
+  </div>
+  <app-view-battle-cache-gen1 [battleCache]="gen1BattleCache">
+  </app-view-battle-cache-gen1>
+</div>

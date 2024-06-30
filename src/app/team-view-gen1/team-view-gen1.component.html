@@ -1,0 +1,112 @@
+<div *ngIf="monster" class="teamview-container">
+  <div *ngIf="!view; then view0; else view1"></div>
+
+  <!-- ================================================================= -->
+  <!-- HP/Status & Stats & Type(s) -->
+
+  <ng-template #view0>
+    <div class="top flex row">
+      <div class="img-container">
+        <img [src]="imgSrc" width="180%" height="144%" />
+        <div class="flex row wrapper no">
+          <p class="no-value f-bold">No.</p>
+          <p class="f-bold">{{ getNo() }}</p>
+        </div>
+      </div>
+
+      <div class="status-container flex col align-between">
+        <div class="">
+          <p>{{ monster.nickname ?? monster.base.name }}</p>
+          <div class="flex row wrapper">
+            <p class="level-l ta-right f-bold">:L</p>
+            <p class="level-r f-bold">{{ monster.level }}</p>
+          </div>
+          <div class="hp flex row justify-end wrapper">
+            <p class="hp-bar-label f-bold">HP:</p>
+            <div class="hp-bar-outline">
+              <div class="hp-bar">{{ setHPBarWidth() }}</div>
+            </div>
+          </div>
+          <pre class="hp-num ta-right f-bold"
+            >{{ padStart(monster.battleHealth.toString(), 3) }}/{{
+              padStart(monster.getStatValue(HP).toString(), 3)
+            }}
+        </pre
+          >
+        </div>
+        <p>STATUS/{{ monster.status.nonVStatus }}</p>
+      </div>
+    </div>
+
+    <div class="bot flex row">
+      <div class="stat-container">
+        <div *ngFor="let stat of monster.getStats() | keyvalue" class="wrapper">
+          <div *ngIf="stat.key !== 'HP'" class="wrapper">
+            <p>{{ stat.key.toUpperCase() }}</p>
+            <p class="stat-value f-bold ta-right">{{ stat.value }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="type-container flex col align-between">
+        <div class="wrapper">
+          <p>TYPE<strong>1</strong>/</p>
+          <p class="type-value">{{ monster.base.types[0].toUpperCase() }}</p>
+          <p>TYPE<strong>2</strong>/</p>
+          <p class="type-value">{{ monster.base.types[1].toUpperCase() }}</p>
+        </div>
+        <div>
+          <p>DN/</p>
+          <p class="f-bold type-value">12345</p>
+          <p>OT/</p>
+          <p class="type-value">Wut</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- ================================================================= -->
+  <!-- EXP & Moves -->
+
+  <ng-template #view1>
+    <div class="top flex row">
+      <div class="img-container">
+        <img [src]="imgSrc" width="180%" height="144%" />
+        <div class="flex row wrapper no">
+          <p class="no-value f-bold">No.</p>
+          <p class="f-bold">{{ getNo() }}</p>
+        </div>
+      </div>
+
+      <div class="status-container flex col justify-between">
+        <p>{{ monster.base.name.toUpperCase() }}</p>
+        <div class="wrapper">
+          <p>EXP POINTS</p>
+          <p class="exp ta-right f-bold">{{ monster.exp }}</p>
+          <p>LEVEL UP</p>
+          <div class="flex row wrapper exp-container">
+            <p class="f-bold ta-right">{{ getEXPToLevelUp() }}</p>
+            <pre> to  </pre>
+            <div class="flex row wrapper levelup">
+              <p class="level-l ta-right f-bold">:L</p>
+              <p class="level-r f-bold">{{ monster.level + 1 }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot flex row">
+      <div class="move-container">
+        <div *ngFor="let attack of monster.attacks" class="wrapper">
+          <p *ngIf="attack.base">{{ attack.base.name.toUpperCase() }}</p>
+          <p *ngIf="attack.base" class="stat-value f-bold ta-right">
+            pp {{ attack.pp }}/{{ attack.base.pp }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- ================================================================= -->
+</div>

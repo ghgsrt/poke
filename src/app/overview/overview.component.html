@@ -1,0 +1,94 @@
+<div *ngIf="monster" class="overview-container" [ngStyle]="{background: backgroundColor, borderColor: borderColor}">
+    <h1>{{ monster.name }}</h1>
+    <div class="flex row">
+      <h2>Type:</h2>
+      <h4 class="type">{{ monster.types.toString().replace(",", " / ") }}</h4>
+    </div>
+  
+    <h3>{{ monster.desc }}</h3>
+  
+    <div class="flex row">
+      <h3>Category:</h3>
+      <h4>{{ monster.category }}</h4>
+      <h3>Dex Color:</h3>
+      <h4>{{ monster.dexColor }}</h4>
+    </div>
+  
+    <div class="flex row">
+        <h3>Height:</h3>
+        <h4>{{ monster.height }}</h4>
+        <h3>Weight:</h3>
+        <h4>{{ monster.weight }}lbs</h4>
+        <h3>Gender:</h3>
+        <h4>{{ getGenderInfo() }}</h4>
+    </div>
+  
+    <div class="flex row">
+      <h3>Catch Rate:</h3>
+      <h4>{{ monster.catchRate }}</h4>
+      <h3>Egg Groups:</h3>
+      <h4>{{ monster.eggGroups }}</h4>
+    </div>
+  
+    <div class="flex row">
+      <h3>Base EXP:</h3>
+      <h4>{{ monster.baseExpYield }}</h4>
+      <h3>Leveling Rate:</h3>
+      <h4>{{ monster.levelingRate }}</h4>
+    </div>
+  
+    <div class="flex row justify-around">
+      <div>
+        <h2>Learn Set</h2>
+        <li *ngFor="let set of monster.learnSet | keyvalue">
+          {{ set.key }}: {{ getName(set.value) }}
+        </li>
+      </div>
+  
+      <div>
+        <h2>Stats</h2>
+        <li *ngFor="let stat of monster.stats | keyvalue">
+          {{ stat.key }}: {{ stat.value }}
+        </li>
+      </div>
+    </div>
+  
+    <div class="flex row justify-around">
+      <div>
+        <h2>Weaknesses</h2>
+        <li *ngFor="let type of monster.defend.weaknesses">
+          {{ type }}
+        </li>
+      </div>
+  
+      <div>
+        <h2>Resistances</h2>
+        <li *ngFor="let type of monster.defend.resistances">
+          {{ type }}
+        </li>
+      </div>
+  
+      <div>
+        <h2>Immunities</h2>
+        <li *ngFor="let type of monster.defend.immunities">
+          {{ type }}
+        </li>
+      </div>
+    </div>
+  
+    <!-- <div class="flex row">
+      <div>
+        <h2>Double Damage</h2>
+        <li *ngFor="let type of monster.defe.strong">{{ type }}</li>
+      </div>
+      <div>
+        <h2>Half Damage</h2>
+        <li *ngFor="let type of monster.matchup.weak">{{ type }}</li>
+      </div>
+      <div>
+        <h2>No Damage</h2>
+        <li *ngFor="let type of monster.matchup.immune">{{ type }}</li>
+      </div>
+    </div> -->
+  </div>
+  
