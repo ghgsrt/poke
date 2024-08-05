@@ -1,4 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    overflow: hidden;
+  overflow: hidden;
+  --width: min(100vw, (calc(100dvh * 16 / 9)));
+  font-size: calc(var(--width) / 80);
+}
+
+body {
+  width: var(--width);
+  max-width: var(--width);
+  min-width: var(--width);
+  height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+app-root {
+  height: 100%;
+  display: block;
+}
+
+app-board {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+app-board button {
+  font-size: 1rem;
+}
+
+main {
+  flex: 1;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+main > div:first-child {
+  height: 100%;
+  //   justify-content: center;
+  //   overflow: hidden;
+}
+
+app-fight-view-gen1 {
+  height: 100%;
+  display: block;
+}
+app-fight-view-gen1 > div:first-child {
+  height: 100%;
+}
+
+app-healthbar {
+  height: 100%;
+  display: block;
+}
+
+app-overview {
+  height: 100%;
+  display: block;
+  overflow: hidden;
 }

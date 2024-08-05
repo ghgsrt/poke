@@ -1,24 +1,28 @@
 * {
   padding: 0;
   margin: 0;
+  font-size: 1.5rem;
 }
 
+
+
 .hp-bar-label {
-  font-size: 0.6em !important;
-  width: 40px !important;
+  font-size: 1.1rem !important;
+  width: 2.25rem !important;
+  height: min-content;
 }
 
 .hp {
-  padding-right: 1.5mm !important;
-  padding-top: 1.5mm !important;
+  padding-right: 0.354375rem !important;
+  padding-top: 0.354375rem !important;
 }
 .hp-bar-outline {
   justify-self: center;
   align-self: center;
-  width: 150px;
-  height: 0.2em !important;
-  outline: 4px solid black;
-  border-radius: 25px;
+  width: 9.375rem;
+  height: 0.375rem !important;
+  outline: 0.25rem solid black;
+  border-radius: 1.5625rem;
   overflow: hidden;
 }
 
@@ -28,18 +32,19 @@
 }
 
 .hp-num {
-  width: calc(100% - 1.5mm) !important;
-  padding-right: 1.5mm !important;
-  transform: translateY(-4px);
+	font-size: 1.25rem;
+  width: calc(100% - 0.354375rem) !important;
+  padding-right: 0.354375rem !important;
+  transform: translateY(-0.25rem);
 }
 
 strong,
 .f-bold {
-  font-size: 0.86em;
+//   font-size: 0.86rem;
 }
 
 p {
-  height: 25px;
+  height: 1.5625rem;
   width: calc(100%);
   margin: 0;
 }
@@ -73,11 +78,12 @@ p {
 }
 
 .level-l {
-  font-size: 0.7em;
+  font-size: 1.2rem;
   width: 190%;
-  transform: translateY(8px);
+  transform: translateY(0.5rem);
 }
 
 .level-r {
-  transform: translateY(4px);
+	font-size: 1.5rem;
+  transform: translateY(0.25rem);
 }

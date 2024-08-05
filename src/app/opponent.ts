@@ -119,7 +119,7 @@ export const trainerTable: TrainerTable = {
     { X: 0, Y: 0 },
     [],
     [
-      new ActiveMonster(MonsterNames.Machop, 15),
+      new ActiveMonster(MonsterNames.Machop, 40),
       new ActiveMonster(MonsterNames.Geodude, 15),
     ]
   ),

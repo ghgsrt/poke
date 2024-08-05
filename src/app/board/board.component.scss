@@ -12,19 +12,19 @@
 
 main > div > div:first-child {
     display: grid;
-    grid-template-columns: 200px  75px;
+    // grid-template-columns: 12.5rem 4.6875rem;
     grid-gap: 0;
 }
 
 main {
-    min-width: 100vw;
-    max-width: 100vw;
-    min-height: 100vh;
-    max-height: 100vh;
+    // min-width: 100vw;
+    // max-width: 100vw;
+    // min-height: 100vh;
+    // max-height: 100vh;
 }
 
 app-square {
-    border: 1px gray solid;
-    height: 200px;
+    border: 0.0625rem gray solid;
+    height: 12.5rem;
 }
 

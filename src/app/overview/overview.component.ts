@@ -1,4 +1,10 @@
-import { Component, Input, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { Monster } from '../monster';
 import { Attack } from '../attack';
 
@@ -10,21 +16,19 @@ import { Attack } from '../attack';
 export class OverviewComponent implements OnChanges {
   @Input() monster?: Monster;
   backgroundColor: string = 'white';
-  borderColor: string = 'black'
+  borderColor: string = 'black';
 
   ngOnChanges(changes: SimpleChanges) {
-    this.backgroundColor = 'hsl(' + (this.monster?.dexColor || 0) + ', 15%, 98%)';
+    this.backgroundColor =
+      'hsl(' + (this.monster?.dexColor || 0) + ', 15%, 98%)';
     this.borderColor = 'hsl(' + (this.monster?.dexColor || 0) + ', 80%, 35%)';
   }
 
   getName(setValue: Attack | Attack[]): string {
     let name = '';
-    if (Array.isArray(setValue)) {
-      setValue.forEach((attack) => {
-        name += attack.name + ', ';
-      });
-      name.slice(0, name.length - 2);
-    } else name = setValue.name;
+    if (Array.isArray(setValue))
+      name = setValue.map((attack) => attack.name).join(', ');
+    else name = setValue.name;
 
     return name;
   }

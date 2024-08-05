@@ -15,8 +15,9 @@
       </div>
 
       <div class="status-container flex col align-between">
-        <div class="">
-          <p>{{ monster.nickname ?? monster.base.name }}</p>
+        <p>{{ monster.nickname ?? monster.base.name }}</p>
+        <app-healthbar [monster]="monster" [showHPNums]="true"></app-healthbar>
+        <!-- <div class="">
           <div class="flex row wrapper">
             <p class="level-l ta-right f-bold">:L</p>
             <p class="level-r f-bold">{{ monster.level }}</p>
@@ -33,7 +34,7 @@
             }}
         </pre
           >
-        </div>
+        </div> -->
         <p>STATUS/{{ monster.status.nonVStatus }}</p>
       </div>
     </div>

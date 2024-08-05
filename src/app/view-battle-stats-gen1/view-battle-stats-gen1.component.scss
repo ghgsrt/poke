@@ -1,14 +1,14 @@
 .battlestats-container {
-  font-size: 1rem;
+  //   font-size: 1rem;
   margin: 1.5rem;
   margin-top: 0;
-  outline: 3px solid black;
+  outline: 0.1875rem solid black;
   padding: 0.5rem;
 }
 
 .battlestats-container > p,
 .sub-label {
-  max-width: 58.65px !important;
+  max-width: 3.665625rem !important;
 }
 
 .battlestats-container > p {
@@ -17,7 +17,7 @@
 
 .battlestats-container strong:not(.sub-label),
 .battlestats-container > p {
-  font-size: 1.25rem;
+  //   font-size: 1.25rem;
 }
 
 .battlestats-container div strong {
